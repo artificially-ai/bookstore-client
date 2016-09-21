@@ -1,0 +1,64 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'playready-client'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.cloud:spring-cloud-starter-config')
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    compile('org.springframework.cloud:spring-cloud-starter-feign')
+    compile('org.springframework.cloud:spring-cloud-starter-hystrix')
+    //compile('org.springframework.cloud:spring-cloud-stream')
+    //compile('org.springframework.cloud:spring-cloud-starter-sleuth')
+    //compile('org.springframework.cloud:spring-cloud-starter-stream-kafka')
+    // https://mvnrepository.com/artifact/io.reactivex/rxjava
+    compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
+    compile('org.springframework.cloud:spring-cloud-sleuth-stream')
+    compile('org.springframework.cloud:spring-cloud-starter-zuul')
+    compile('org.springframework.boot:spring-boot-starter-hateoas')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('com.irdeto.rrm.ls:dtos:0.0.1-SNAPSHOT')
+    compile('org.modelmapper:modelmapper:0.7.6')
+    compile('io.reactivex:rxjava')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR5"
+    }
+}
+
+springBoot {
+    executable = true
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.1'
+}
