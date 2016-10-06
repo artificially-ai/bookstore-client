@@ -1,4 +1,4 @@
-package com.irdeto.rrm.ls.edgeservices;
+package nl.ekholabs.microservices.bookstore.client.edgeservices;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.hateoas.PagedResources;

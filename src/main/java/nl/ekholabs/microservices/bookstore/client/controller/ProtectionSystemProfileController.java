@@ -1,6 +1,6 @@
-package com.irdeto.rrm.ls.controller;
+package nl.ekholabs.microservices.bookstore.client.controller;
 
-import com.irdeto.rrm.ls.edgeservices.ProtectionSystemProfileService;
+import nl.ekholabs.microservices.bookstore.client.edgeservices.ProtectionSystemProfileService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import org.modelmapper.ModelMapper;

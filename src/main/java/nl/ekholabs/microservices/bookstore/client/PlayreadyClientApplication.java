@@ -1,6 +1,4 @@
-package com.irdeto.rrm.ls;
-
-import com.irdeto.rrm.ls.edgeservices.ProtectionSystemProfileService;
+package nl.ekholabs.microservices.bookstore.client;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
