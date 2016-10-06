@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient("playready-service")
+@FeignClient("bookstore-service")
 public interface ProtectionSystemProfileService {
 
-  @RequestMapping(method = RequestMethod.GET, value = "/protectionSystems",
+  @RequestMapping(method = RequestMethod.GET, value = "/books",
       produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   PagedResources<String> findAllProfiles();
 
-  @RequestMapping(method = RequestMethod.POST, value = "/protectionSystems",
+  @RequestMapping(method = RequestMethod.POST, value = "/books",
       consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
       produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   String createSystemProfile(@RequestBody String systemProfile);
