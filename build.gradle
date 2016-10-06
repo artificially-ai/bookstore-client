@@ -44,7 +44,7 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-zuul')
     compile('org.springframework.boot:spring-boot-starter-hateoas')
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('com.irdeto.rrm.ls:dtos:0.0.1-SNAPSHOT')
+    compile('nl.ekholabs.microservices.bookstore.domain:domain:0.0.1-SNAPSHOT')
     compile('org.modelmapper:modelmapper:0.7.6')
     compile('io.reactivex:rxjava')
     testCompile('org.springframework.boot:spring-boot-starter-test')

@@ -20,10 +20,10 @@ import org.springframework.integration.annotation.IntegrationComponentScan;
 @EnableDiscoveryClient
 @IntegrationComponentScan
 @SpringBootApplication
-public class PlayreadyClientApplication {
+public class BookClientApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(PlayreadyClientApplication.class, args);
+    SpringApplication.run(BookClientApplication.class, args);
   }
 
   @Bean

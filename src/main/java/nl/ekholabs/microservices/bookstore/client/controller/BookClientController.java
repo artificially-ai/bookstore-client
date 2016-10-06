@@ -1,6 +1,6 @@
 package nl.ekholabs.microservices.bookstore.client.controller;
 
-import nl.ekholabs.microservices.bookstore.client.edgeservices.ProtectionSystemProfileService;
+import nl.ekholabs.microservices.bookstore.client.edgeservices.BookClientService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import org.modelmapper.ModelMapper;
@@ -17,26 +17,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("/protectionSystems")
-public class ProtectionSystemProfileController {
+@RequestMapping("/books")
+public class BookClientController {
 
-  private final static Logger LOGGER = Logger.getLogger(ProtectionSystemProfileController.class.getName());
+  private final static Logger LOGGER = Logger.getLogger(BookClientController.class.getName());
 
-  private ProtectionSystemProfileService systemProfileService;
+  private BookClientService bookClientService;
 
   private ModelMapper modelMapper;
 
   @Autowired
-  public ProtectionSystemProfileController(
-      final ProtectionSystemProfileService systemProfileService, final ModelMapper modelMapper) {
-    this.systemProfileService = systemProfileService;
+  public BookClientController(
+          final BookClientService bookClientService, final ModelMapper modelMapper) {
+    this.bookClientService = bookClientService;
     this.modelMapper = modelMapper;
   }
 
   @HystrixCommand(fallbackMethod = "listAllFallback")
   @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public Collection<String> listAll() {
-    PagedResources<String> resources = systemProfileService.findAllProfiles();
+    PagedResources<String> resources = bookClientService.findAll();
     Collection<String> profiles = resources.getContent();
 
     return profiles;
