@@ -1,7 +1,8 @@
 package nl.ekholabs.microservices.bookstore.client.controller;
 
-import nl.ekholabs.microservices.bookstore.client.edgeservices.BookClientService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+import nl.ekholabs.microservices.bookstore.client.edgeservices.BookClientService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
