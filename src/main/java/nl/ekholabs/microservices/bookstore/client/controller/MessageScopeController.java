@@ -13,8 +13,6 @@ import java.util.logging.Logger;
 @RequestMapping("/message")
 public class MessageScopeController {
 
-  private final static Logger LOGGER = Logger.getLogger(MessageScopeController.class.getName());
-
   @Value("${application.message}")
   private String message;
 

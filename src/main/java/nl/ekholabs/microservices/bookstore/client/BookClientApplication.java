@@ -1,6 +1,5 @@
 package nl.ekholabs.microservices.bookstore.client;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -9,9 +8,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.context.annotation.Bean;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.integration.annotation.IntegrationComponentScan;
 
+@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 @EnableHystrix
 @EnableFeignClients
 @EnableZuulProxy
@@ -24,10 +24,5 @@ public class BookClientApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(BookClientApplication.class, args);
-  }
-
-  @Bean
-  public ModelMapper modelMapper() {
-    return new ModelMapper();
   }
 }
